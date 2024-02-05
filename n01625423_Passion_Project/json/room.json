@@ -1,0 +1,9 @@
+{
+	"RoomID": 6,
+	"HotelID": 1,
+	"Hotels": null,
+	"RoomNumber": "104",
+	"Type": "Suite",
+	"Price": 500.00,
+	"Status": "Available"
+}

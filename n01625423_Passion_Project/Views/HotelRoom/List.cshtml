@@ -1,0 +1,44 @@
+﻿@model IEnumerable<n01625423_Passion_Project.Models.RoomDto>
+
+@{
+    ViewBag.Title = "Rooms";
+}
+
+<div class="row">
+    <div class="col">
+        <h2>Rooms</h2>
+    </div>
+    <div class="col mb-3 d-flex justify-content-end">
+        <a href="/HotelRoom/Add" class="btn btn-success">+ Add New Room</a>
+    </div>
+</div>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Number</th>
+            <th>Type</th>
+            <th>Price</th>
+            <th>Status</th>
+            <th>Hotel</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var room in Model)
+        {
+            <tr>
+                <td>@room.RoomNumber</td>
+                <td>@room.Type</td>
+                <td>$ @room.Price</td>
+                <td>@room.Status</td>
+                <td>@room.HotelName</td>
+                <td>
+                    <a href="/HotelRoom/Details/@room.RoomID" class="btn btn-primary"><i class="bi bi-eye"></i> View</a>
+                    <a href="/HotelRoom/Edit/@room.RoomID" class="btn btn-warning"><i class="bi bi-pencil"></i> Update</a>
+                    <a href="/HotelRoom/DeleteRoom/@room.RoomID" class="btn btn-danger"><i class="bi bi-trash"></i> Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

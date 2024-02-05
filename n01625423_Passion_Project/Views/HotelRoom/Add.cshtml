@@ -1,0 +1,53 @@
+﻿@model IEnumerable<n01625423_Passion_Project.Models.HotelDto>
+
+@{
+    ViewBag.Title = "Add Room";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col">
+            <h2 class="text-muted">Add New Room</h2>
+        </div>
+        <div class="col-auto">
+            <a href="/HotelRoom/List" class="btn btn-outline-secondary"><i class="bi bi-arrow-left"></i> Back To Rooms</a>
+        </div>
+    </div>
+
+    <form action="/HotelRoom/Create" method="POST">
+        <div class="mb-3">
+            <label for="RoomNumber" class="form-label">Room Number:</label>
+            <input type="text" class="form-control" id="RoomNumber" name="RoomNumber" required />
+        </div>
+        <div class="mb-3">
+            <label for="Type" class="form-label">Type:</label>
+            <select class="form-select" id="Type" name="Type" required>
+                <option value="Standard">Standard</option>
+                <option value="Deluxe">Deluxe</option>
+                <option value="Suite">Suite</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="Price" class="form-label">Price:</label>
+            <input type="number" class="form-control" id="Price" name="Price" step="0.01" required />
+        </div>
+        <div class="mb-3">
+            <label for="Status" class="form-label">Status:</label>
+            <select class="form-select" id="Status" name="Status" required>
+                <option value="Available">Available</option>
+                <option value="Occupied">Occupied</option>
+                <option value="Reserved">Reserved</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="Hotel" class="form-label">Hotel:</label>
+            <select class="form-select" id="Hotel" name="HotelID" required>
+                @foreach (var hotel in Model)
+                {
+                    <option value="@hotel.HotelID">@hotel.Name</option>
+                }
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Room</button>
+    </form>
+</div>
