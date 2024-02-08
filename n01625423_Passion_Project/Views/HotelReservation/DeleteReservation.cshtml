@@ -1,0 +1,24 @@
+﻿@model n01625423_Passion_Project.Models.ReservationDto
+@{
+    ViewBag.Title = "DeleteReservation";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col">
+            <h2 class="text-center">Are you sure you want to delete the reservation for this room <strong>@Model.RoomNumber</strong>?</h2>
+        </div>
+    </div>
+
+    <form method="POST" action="/HotelReservation/Delete/@Model.ReservationID">
+        <div class="mt-3 d-flex align-items-center justify-content-end gap-2">
+            <div>
+                <button type="submit" class="btn btn-danger btn-lg btn-block">Delete</button>
+            </div>
+            <div>
+                <a href="/HotelReservation/BookingList" class="btn btn-secondary btn-lg btn-block">Cancel</a>
+            </div>
+        </div>
+    </form>
+</div>
+

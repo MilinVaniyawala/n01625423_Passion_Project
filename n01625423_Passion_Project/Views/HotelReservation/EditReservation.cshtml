@@ -1,0 +1,54 @@
+﻿@model n01625423_Passion_Project.Models.ReservationDto
+
+@{
+    ViewBag.Title = "Edit Reservation";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col">
+            <h2 class="text-muted">Edit Reservation</h2>
+        </div>
+        <div class="col-auto">
+            <a href="/HotelReservation/BookingList" class="btn btn-outline-secondary"><i class="bi bi-arrow-left"></i> Back To Reservations</a>
+        </div>
+    </div>
+
+    <form action="/HotelReservation/UpdateReservation/@Model.ReservationID" method="POST">
+        <div class="row">
+            <div class="col mb-3">
+                <label for="RoomNum" class="form-label">Room:</label>
+                <input type="text" class="form-control" id="RoomNum" name="RoomNum" value="@Model.RoomNumber" disabled />
+            </div>
+            <div class="col mb-3">
+                <label for="UserName" class="form-label">User:</label>
+                <input type="text" class="form-control" id="UserName" name="UserName" value="@Model.Username" disabled />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mb-3">
+                <label for="CheckInDate" class="form-label">Check-In Date:</label>
+                <input type="datetime-local" class="form-control" id="CheckInDate" name="CheckInDate" value="@Model.CheckInDate.ToString("yyyy-MM-ddTHH:mm")" required />
+            </div>
+            <div class="col mb-3">
+                <label for="CheckOutDate" class="form-label">Check-Out Date:</label>
+                <input type="datetime-local" class="form-control" id="CheckOutDate" name="CheckOutDate" value="@Model.CheckOutDate.ToString("yyyy-MM-ddTHH:mm")" required />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mb-3">
+                <label for="Status" class="form-label">Status:</label>
+                <select class="form-select" id="Status" name="Status" required>
+                    <option value="Confirmed" @(Model.Status == "Confirmed" ? "selected" : "")>Confirmed</option>
+                    <option value="Pending" @(Model.Status == "Pending" ? "selected" : "")>Pending</option>
+                    <option value="Canceled" @(Model.Status == "Canceled" ? "selected" : "")>Canceled</option>
+                    <option value="In Progress" @(Model.Status == "In Progress" ? "selected" : "")>In Progress</option>
+                </select>
+            </div>
+        </div>
+        <input type="hidden" name="ReservationID" value="@Model.ReservationID" />
+        <input type="hidden" class="form-control" id="RoomID" name="RoomID" value="@Model.RoomID">
+        <input type="hidden" class="form-control" id="UserID" name="UserID" value="@Model.UserID">
+        <button type="submit" class="btn btn-primary">Update Reservation</button>
+    </form>
+</div>

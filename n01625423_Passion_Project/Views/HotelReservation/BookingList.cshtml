@@ -1,0 +1,45 @@
+﻿@model IEnumerable<n01625423_Passion_Project.Models.ReservationDto>
+
+@{
+    ViewBag.Title = "BookingList";
+}
+
+<div class="row">
+    <div class="col">
+        <h2>Reservations</h2>
+    </div>
+    <div class="col mb-3 d-flex justify-content-end">
+        <a href="/HotelReservation/AddReservation" class="btn btn-success">+ Add New Reservation</a>
+    </div>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>User</th>
+                <th>RoomNumber</th>
+                <th>CheckInDate</th>
+                <th>CheckOutDate</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var reservation in Model)
+            {
+                <tr>
+                    <td>@reservation.Username</td>
+                    <td>@reservation.RoomNumber</td>
+                    <td>@reservation.CheckInDate.ToString("MMMM dd, yyyy") <br/> @reservation.CheckInDate.ToString("HH:mm:ss")</td>
+                    <td>@reservation.CheckOutDate.ToString("MMMM dd, yyyy") <br /> @reservation.CheckOutDate.ToString("HH:mm:ss")</td>
+                    <td>@reservation.Status</td>
+                    <td>
+                        <a href="/HotelReservation/ViewReservation/@reservation.ReservationID" class="btn btn-primary"><i class="bi bi-eye"></i> View</a>
+                        <a href="/HotelReservation/EditReservation/@reservation.ReservationID" class="btn btn-warning"><i class="bi bi-pencil"></i> Update</a>
+                        <a href="/HotelReservation/DeleteReservation/@reservation.ReservationID" class="btn btn-danger"><i class="bi bi-trash"></i> Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

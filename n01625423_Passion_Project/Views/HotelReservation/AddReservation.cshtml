@@ -1,0 +1,63 @@
+﻿@model n01625423_Passion_Project.Models.ViewModels.AddReservationViewModel
+
+@{
+    ViewBag.Title = "Add Reservation";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col">
+            <h2 class="text-muted">Add New Reservation</h2>
+        </div>
+        <div class="col-auto">
+            <a href="/HotelReservation/BookingList" class="btn btn-outline-secondary"><i class="bi bi-arrow-left"></i> Back To Reservations</a>
+        </div>
+    </div>
+
+    <form action="/HotelReservation/CreateReservation" method="POST">
+        <div class="row">
+            <div class="col mb-3">
+                <label for="RoomId" class="form-label">Room:</label>
+                <select class="form-select" id="RoomId" name="RoomId" required>
+                    <option value="">Select Room</option>
+                    @foreach (var room in Model.Rooms)
+                    {
+                        <option value="@room.RoomID">@room.RoomNumber</option>
+                    }
+                </select>
+            </div>
+            <div class="col mb-3">
+                <label for="UserId" class="form-label">User:</label>
+                <select class="form-select" id="UserId" name="UserId" required>
+                    <option value="">Select User</option>
+                    @foreach (var user in Model.Users)
+                    {
+                        <option value="@user.UserID">@user.Username</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mb-3">
+                <label for="CheckInDate" class="form-label">Check-In Date:</label>
+                <input type="datetime-local" class="form-control" id="CheckInDate" name="CheckInDate" required />
+            </div>
+            <div class="col mb-3">
+                <label for="CheckOutDate" class="form-label">Check-Out Date:</label>
+                <input type="datetime-local" class="form-control" id="CheckOutDate" name="CheckOutDate" required />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mb-3">
+                <label for="Status" class="form-label">Status:</label>
+                <select class="form-select" id="Status" name="Status" required>
+                    <option value="Confirmed">Confirmed</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Canceled">Canceled</option>
+                    <option value="In Progress">In Progress</option>
+                </select>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Reservation</button>
+    </form>
+</div>

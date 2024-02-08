@@ -158,7 +158,7 @@ namespace n01625423_Passion_Project.Controllers
             }
         }
 
-        // GET: HotelRoom/Delete/2
+        // GET: HotelRoom/DeleteRoom/2
         public ActionResult DeleteRoom(int id)
         {
             // Get Particular Room information
