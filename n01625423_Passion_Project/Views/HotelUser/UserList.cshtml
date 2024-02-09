@@ -1,0 +1,31 @@
+﻿@model IEnumerable<n01625423_Passion_Project.Models.UserDto>
+
+@{
+    ViewBag.Title = "Users";
+}
+
+<div class="row">
+    <div class="col">
+        <h2>Users</h2>
+    </div>
+    <div class="col mb-3 d-flex justify-content-end">
+        <a href="/HotelUser/AddUser" class="btn btn-success">+ Add New User</a>
+    </div>
+</div>
+
+<div class="row">
+    @foreach (var user in Model)
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">@user.Username</h5>
+                    <p class="card-text">@user.Email</p>
+                    <a href="/HotelUser/ViewUser/@user.UserID" class="btn btn-primary"><i class="bi bi-eye"></i> View</a>
+                    <a href="/HotelUser/EditUser/@user.UserID" class="btn btn-warning"><i class="bi bi-pencil"></i> Update</a>
+                    <a href="/HotelUser/DeleteUser/@user.UserID" class="btn btn-danger"><i class="bi bi-trash"></i> Delete</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

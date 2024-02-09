@@ -16,6 +16,13 @@ namespace n01625423_Passion_Project.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        /// <summary>
+        /// Retrieves a list of all reservations.
+        /// </summary>
+        /// <returns>
+        /// HEADER: 200 (OK)
+        /// CONTENT: All reservations in the database, including the associated user and room information.
+        /// </returns>
         // GET: api/ReservationData/ListReservations
         [HttpGet]
         [Route("api/ReservationData/ListReservations")]
@@ -39,6 +46,14 @@ namespace n01625423_Passion_Project.Controllers
             return ReservationDtos;
         }
 
+        /// <summary>
+        /// Retrieves information about a reservation by its ID.
+        /// </summary>
+        /// <param name="reservationId">The ID of the reservation to retrieve.</param>
+        /// <returns>
+        /// HEADER: 200 (OK)
+        /// CONTENT: The reservation information, including the associated user and room details.
+        /// </returns>
         // GET: api/ReservationData/FindReservation/3
         [ResponseType(typeof(Reservation))]
         [HttpGet]
@@ -63,6 +78,13 @@ namespace n01625423_Passion_Project.Controllers
             return Ok(reservationDto); // return reservation Object
         }
 
+        /// <summary>
+        /// Adds a new reservation to the system.
+        /// </summary>
+        /// <param name="reservation">The reservation object containing the information to add.</param>
+        /// <returns>
+        /// HEADER: 200 (OK) if the reservation is added successfully.
+        /// </returns>
         // POST: api/ReservationData/AddReservation
         [ResponseType(typeof (Reservation))]
         [HttpPost]
@@ -79,6 +101,14 @@ namespace n01625423_Passion_Project.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// Updates the information of an existing reservation in the system.
+        /// </summary>
+        /// <param name="id">The ID of the reservation to update.</param>
+        /// <param name="reservation">The updated reservation object with new information.</param>
+        /// <returns>
+        /// HEADER: 204 (No Content) if the reservation is updated successfully.
+        /// </returns>
         // POST: api/ReservationData/UpdateReservation/3
         [ResponseType(typeof(Reservation))]
         [HttpPost]
@@ -117,6 +147,14 @@ namespace n01625423_Passion_Project.Controllers
             return (StatusCode(HttpStatusCode.NoContent));
         }
 
+        /// <summary>
+        /// Deletes a reservation from the system by its ID.
+        /// </summary>
+        /// <param name="id">The ID of the reservation to delete.</param>
+        /// <returns>
+        /// HEADER: 200 (OK) if the reservation is deleted successfully.
+        /// HEADER: 404 (Not Found) if the reservation with the given ID is not found.
+        /// </returns>
         // POST: api/ReservationData/DeleteReservation/3
         [ResponseType(typeof(Reservation))]
         [HttpPost]

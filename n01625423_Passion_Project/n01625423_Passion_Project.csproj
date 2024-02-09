@@ -188,6 +188,7 @@
     <Compile Include="Controllers\HotelReservationDataController.cs" />
     <Compile Include="Controllers\HotelRoomController.cs" />
     <Compile Include="Controllers\HotelRoomDataController.cs" />
+    <Compile Include="Controllers\HotelUserController.cs" />
     <Compile Include="Controllers\HotelUserDataController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -299,6 +300,11 @@
     <Content Include="Views\HotelReservation\AddReservation.cshtml" />
     <Content Include="Views\HotelReservation\EditReservation.cshtml" />
     <Content Include="Views\HotelReservation\DeleteReservation.cshtml" />
+    <Content Include="Views\HotelUser\UserList.cshtml" />
+    <Content Include="Views\HotelUser\ViewUser.cshtml" />
+    <Content Include="Views\HotelUser\AddUser.cshtml" />
+    <Content Include="Views\HotelUser\EditUser.cshtml" />
+    <Content Include="Views\HotelUser\DeleteUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

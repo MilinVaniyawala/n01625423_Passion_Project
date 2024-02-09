@@ -16,6 +16,13 @@ namespace n01625423_Passion_Project.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        /// <summary>
+        /// Retrieves a list of all rooms.
+        /// </summary>
+        /// <returns>
+        /// HEADER: 200 (OK)
+        /// CONTENT: All rooms in the database, including their details such as room number, type, price, status, and associated hotel name.
+        /// </returns>
         // GET: api/RoomData/ListRooms
         [HttpGet]
         [Route("api/RoomData/ListRooms")]
@@ -36,6 +43,14 @@ namespace n01625423_Passion_Project.Controllers
             return RoomDtos;
         }
 
+        /// <summary>
+        /// Retrieves information about a room by its ID.
+        /// </summary>
+        /// <param name="roomId">The ID of the room to retrieve.</param>
+        /// <returns>
+        /// HEADER: 200 (OK)
+        /// CONTENT: The room information, including its details such as room number, type, price, status, and associated hotel name.
+        /// </returns>
         // GET: api/RoomData/FindRoom/2
         [ResponseType(typeof(Room))]
         [HttpGet]
@@ -60,6 +75,13 @@ namespace n01625423_Passion_Project.Controllers
             return Ok(roomDto); // return Room Object
         }
 
+        /// <summary>
+        /// Adds a new room to the system.
+        /// </summary>
+        /// <param name="room">The room object containing the information to add.</param>
+        /// <returns>
+        /// HEADER: 200 (OK) if the room is added successfully.
+        /// </returns>
         // POST: api/RoomData/AddRoom
         [ResponseType(typeof (Room))]
         [HttpPost]
@@ -76,6 +98,14 @@ namespace n01625423_Passion_Project.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// Updates the information of an existing room in the system.
+        /// </summary>
+        /// <param name="id">The ID of the room to update.</param>
+        /// <param name="room">The updated room object with new information.</param>
+        /// <returns>
+        /// HEADER: 204 (No Content) if the room is updated successfully.
+        /// </returns>
         // POST: api/RoomData/UpdateRoom/2
         [ResponseType(typeof(Room))]
         [HttpPost]
@@ -126,6 +156,14 @@ namespace n01625423_Passion_Project.Controllers
             return (StatusCode(HttpStatusCode.NoContent));
         }
 
+        /// <summary>
+        /// Deletes a room from the system by its ID.
+        /// </summary>
+        /// <param name="id">The ID of the room to delete.</param>
+        /// <returns>
+        /// HEADER: 200 (OK) if the room is deleted successfully.
+        /// HEADER: 404 (Not Found) if the room with the given ID is not found.
+        /// </returns>
         // POST: api/RoomData/DeleteRoom/2
         [ResponseType(typeof(Room))]
         [HttpPost]

@@ -1,0 +1,31 @@
+﻿@model n01625423_Passion_Project.Models.UserDto
+@{
+    ViewBag.Title = "Edit User";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col">
+            <h2 class="text-muted">Edit User</h2>
+        </div>
+        <div class="col-auto">
+            <a href="/HotelUser/UserList" class="btn btn-outline-secondary"><i class="bi bi-arrow-left"></i> Back To Users</a>
+        </div>
+    </div>
+
+    <form action="/HotelUser/UpdateUser/@Model.UserID" method="POST">
+        <input type="hidden" class="form-control" id="UserID" name="UserID" value="@Model.UserID">
+        <input type="hidden" class="form-control" id="Password" name="Password" value="@Model.Password">
+        <div class="row">
+            <div class="col mb-3">
+                <label for="Username" class="form-label">Username:</label>
+                <input type="text" class="form-control" id="Username" name="Username" value="@Model.Username" required>
+            </div>
+            <div class="col mb-3">
+                <label for="Email" class="form-label">Email:</label>
+                <input type="email" class="form-control" id="Email" name="Email" value="@Model.Email" required>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Update User</button>
+    </form>
+</div>
